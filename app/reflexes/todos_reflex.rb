@@ -2,7 +2,7 @@ class TodosReflex < ApplicationReflex
   before_reflex :set_params, only: [:create]
 
   def create
-    Todo.create(@todo_params)
+    @todo = Todo.create(@todo_params)
   end
 
   def delete(id)

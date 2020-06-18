@@ -5,7 +5,7 @@ class TodosController < ApplicationController
   # GET /todos.json
   def index
     @todos = Todo.all.order(created_at: :asc)
-    @todo = Todo.new
+    @todo ||= Todo.new
   end
 
   # GET /todos/1
