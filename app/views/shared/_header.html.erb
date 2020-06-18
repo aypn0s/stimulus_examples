@@ -1,7 +1,15 @@
-<div class="container">
+<div class="container mb-5">
 
   <nav class="nav nav-pills flex-column flex-sm-row">
-    <a class="flex-sm-fill text-sm-center nav-link active" href="<%= root_url %>">Todos</a>
+
+    <a class="flex-sm-fill text-sm-center nav-link <%= controller_name == 'todos' ? 'active' : '' %>" href="<%= root_url %>">
+      Todos
+    </a>
+    
+    <a class="flex-sm-fill text-sm-center nav-link <%= controller_name == 'products' ? 'active' : '' %>"" href="<%= products_url %>">
+      Products
+    </a>
+  
   </nav>
 
 </div>
