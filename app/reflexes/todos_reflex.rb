@@ -1,6 +1,21 @@
-# frozen_string_literal: true
+class TodosReflex < ApplicationReflex
+  before_reflex :set_params, only: [:create]
 
-class ExampleReflex < ApplicationReflex
+  def create
+    Todo.create(@todo_params)
+  end
+
+  def delete(id)
+    Todo.find(id).destroy
+  end
+
+  def toggle_done
+    Todo.find(element.dataset.id).update(done: true)
+  end
+
+  def set_params
+    @todo_params = params.require(:todo).permit!
+  end
   # Add Reflex methods in this file.
   #
   # All Reflex instances expose the following properties:

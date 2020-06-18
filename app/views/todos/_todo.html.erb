@@ -1,0 +1,23 @@
+<li class="list-group-item d-flex justify-content-between">
+  
+  <div class="d-flex align-items-center">
+    
+    <% unless todo.done %>
+      <input type="checkbox" class="mr-3" data-reflex="change->TodosReflex#toggle_done" 
+        data-id="<%= todo.id %>">
+    <% end %>
+    
+    <div class="<%= todo.done ? 'done' : '' %>">
+      <%= todo.title %>
+    </div>
+
+  </div>
+  
+  <div>
+    <div class="btn btn-sm btn-outline-danger" data-controller="todos" 
+      data-action="click->todos#delete" data-id="<%= todo.id %>">
+      remove
+    </div>
+  </div>
+
+</li>
